@@ -1,0 +1,33 @@
+info:
+  application:
+    name: @project.artifactId@
+    version: @project.version@
+
+spring:
+  profiles:
+    active: native, local
+  application:
+    name: gateway
+  config:
+    import: optional:configserver:http://config:8760
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+
+springdoc:
+  server:
+    url: http://localhost:8800
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui
+    urls:
+      - url: /v3/api-docs
+        name: su

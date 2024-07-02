@@ -1,0 +1,12 @@
+info:
+  application:
+    name: @project.artifactId@
+    version: @project.version@
+
+spring:
+  profiles:
+    active: native, local
+  application:
+    name: invoice
+  config:
+    import: optional:configserver:http://localhost:8760

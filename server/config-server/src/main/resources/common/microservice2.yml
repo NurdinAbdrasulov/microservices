@@ -1,0 +1,146 @@
+#base
+server:
+  port: 8808
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+    build:
+      enabled: true
+    java:
+      enabled: true
+    os:
+      enabled: true
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        connection:
+          pool_size: 10
+          autoReconnect: true
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 50
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: UNSPECIFIED
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  flyway:
+    enabled: false
+  data:
+    web:
+      pageable:
+        max-page-size: 10000
+
+springdoc:
+    server:
+      url: http://localhost:8800/invoice
+    api-docs:
+      path: /v3/api-docs
+    swagger-ui:
+      path: /swagger-ui
+
+security:
+  max-attempted-logins: 3
+  block-duration: 5
+  jwt:
+    access:
+      cookie-name: MARS
+      secret: dsafOCAL)sdfasd
+      #24 hours
+      timeout: 86400000
+    refresh:
+      secret: sdfasfLOCAL)asdfsadf
+      #1 week
+      timeout: 604800000
+
+feign:
+  header-name:
+    session-id: SuSessionId
+  cipher:
+    secret-key: XC5$Df_Yhg)0Q/!nnZV:S02Q91ZZHQ_u
+    algorithm: AES
+
+---
+#local
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:postgresql://161.35.204.173:5432/testinv
+    username: postgres
+    password: pa$$word
+
+test:
+  url: https://github.com/
+
+---
+#dev
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:postgresql://161.35.204.173:5432/testinv
+    username: postgres
+    password: pa$$word
+
+test:
+  url: https://github.com/
+
+
+security:
+  jwt:
+    access:
+      secret: asdfasdfsdf
+      #10 minutes
+      timeout: 600000
+    refresh:
+      secret: asdfsadfdfadf
+      #23 hours, 50 minutes
+      timeout: 85800000
+
+---
+#test
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:postgresql://161.35.204.173:5432/testinv
+    username: postgres
+    password: pa$$word
+
+security:
+  jwt:
+    access:
+      secret: safsdafadfdfs
+      #10 minutes
+      timeout: 600000
+    refresh:
+      secret: asdfsadfsdafas
+      #23 hours, 50 minutes
+      timeout: 85800000
