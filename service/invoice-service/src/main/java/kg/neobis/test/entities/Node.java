@@ -1,4 +1,4 @@
-package kg.neobis.invoice.entities;
+package kg.neobis.test.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -30,14 +30,6 @@ management:
     os:
       enabled: true
 
-logging:
-  pattern:
-    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p){} <> %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
-    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p <> %-40.40logger{39} : %m%n%wEx"
-  file:
-    path:
-  level:
-    root: info
 
 resilience4j:
   timelimiter:

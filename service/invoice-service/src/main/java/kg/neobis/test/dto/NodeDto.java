@@ -1,4 +1,4 @@
-package kg.neobis.invoice.dto;
+package kg.neobis.test.dto;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

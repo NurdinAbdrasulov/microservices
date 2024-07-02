@@ -47,8 +47,6 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: update
-  flyway:
-    enabled: false
   data:
     web:
       pageable:
@@ -56,25 +54,11 @@ spring:
 
 springdoc:
     server:
-      url: http://localhost:8800/invoice
+      url: http://localhost:8800/test
     api-docs:
       path: /v3/api-docs
     swagger-ui:
       path: /swagger-ui
-
-security:
-  max-attempted-logins: 3
-  block-duration: 5
-  jwt:
-    access:
-      cookie-name: MARS
-      secret: dsafOCAL)sdfasd
-      #24 hours
-      timeout: 86400000
-    refresh:
-      secret: sdfasfLOCAL)asdfsadf
-      #1 week
-      timeout: 604800000
 
 feign:
   header-name:
@@ -90,57 +74,7 @@ spring:
     activate:
       on-profile: local
   datasource:
-    url: jdbc:postgresql://161.35.204.173:5432/testinv
+    url: jdbc:postgresql://161.35.204.173:5432/service2
     username: postgres
     password: pa$$word
 
-test:
-  url: https://github.com/
-
----
-#dev
-spring:
-  config:
-    activate:
-      on-profile: dev
-  datasource:
-    url: jdbc:postgresql://161.35.204.173:5432/testinv
-    username: postgres
-    password: pa$$word
-
-test:
-  url: https://github.com/
-
-
-security:
-  jwt:
-    access:
-      secret: asdfasdfsdf
-      #10 minutes
-      timeout: 600000
-    refresh:
-      secret: asdfsadfdfadf
-      #23 hours, 50 minutes
-      timeout: 85800000
-
----
-#test
-spring:
-  config:
-    activate:
-      on-profile: test
-  datasource:
-    url: jdbc:postgresql://161.35.204.173:5432/testinv
-    username: postgres
-    password: pa$$word
-
-security:
-  jwt:
-    access:
-      secret: safsdafadfdfs
-      #10 minutes
-      timeout: 600000
-    refresh:
-      secret: asdfsadfsdafas
-      #23 hours, 50 minutes
-      timeout: 85800000

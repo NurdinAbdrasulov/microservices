@@ -1,7 +1,7 @@
-package kg.neobis.invoice.controller;
+package kg.neobis.test.controller;
 
-import kg.neobis.invoice.dto.NodeDto;
-import kg.neobis.invoice.service.impl.ServiceImpl;
+import kg.neobis.test.dto.NodeDto;
+import kg.neobis.test.service.impl.ServiceImpl;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/service2")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class Controller {
@@ -29,7 +29,7 @@ public class Controller {
 
     @GetMapping
     public ResponseEntity<?> test() {
-        return ResponseEntity.ok("It works");
+        return ResponseEntity.ok("It works. It's a test service");
     }
 
 }

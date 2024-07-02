@@ -17,6 +17,7 @@
     <modules>
         <module>gateway-service</module>
         <module>invoice-service</module>
+        <module>test-service</module>
     </modules>
 
     <dependencies>

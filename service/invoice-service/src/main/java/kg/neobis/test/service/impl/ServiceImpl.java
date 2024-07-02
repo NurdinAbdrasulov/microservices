@@ -1,9 +1,9 @@
-package kg.neobis.invoice.service.impl;
+package kg.neobis.test.service.impl;
 
-import kg.neobis.invoice.dto.NodeDto;
-import kg.neobis.invoice.entities.Node;
-import kg.neobis.invoice.repository.NodeRepo;
-import kg.neobis.invoice.service.Service;
+import kg.neobis.test.dto.NodeDto;
+import kg.neobis.test.entities.Node;
+import kg.neobis.test.repository.NodeRepo;
+import kg.neobis.test.service.Service;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;

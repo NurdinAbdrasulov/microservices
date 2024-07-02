@@ -12,6 +12,7 @@ import java.util.List;
 public enum ServiceRoute {
 
     INVOICE("invoice", "lb://invoice", true),
+    TEST("test", "lb://test", true),
     ;
 
     String id;
